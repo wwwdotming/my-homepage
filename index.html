@@ -14,6 +14,8 @@
         input, button { padding: 10px; margin-top: 10px; width: 100%; }
         button { background-color: #007bff; color: white; border: none; cursor: pointer; }
         button:hover { background-color: #0056b3; }
+        .delete-btn { background-color: red; color: white; padding: 5px; border: none; cursor: pointer; }
+        .delete-btn:hover { background-color: darkred; }
     </style>
 </head>
 <body>
@@ -24,11 +26,12 @@
                 <tr>
                     <th>Website Name</th>
                     <th>URL</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody id="website-list">
-                <tr><td>Google</td><td><a href="https://www.google.com" target="_blank">https://www.google.com</a></td></tr>
-                <tr><td>GitHub</td><td><a href="https://www.github.com" target="_blank">https://www.github.com</a></td></tr>
+                <tr><td>Google</td><td><a href="https://www.google.com" target="_blank">https://www.google.com</a></td><td><button class="delete-btn" onclick="deleteWebsite(this)">Delete</button></td></tr>
+                <tr><td>GitHub</td><td><a href="https://www.github.com" target="_blank">https://www.github.com</a></td><td><button class="delete-btn" onclick="deleteWebsite(this)">Delete</button></td></tr>
             </tbody>
         </table>
         <input type="text" id="website-name" placeholder="Enter website name">
@@ -55,11 +58,16 @@
             if (name && url) {
                 let list = document.getElementById('website-list');
                 let row = document.createElement('tr');
-                row.innerHTML = `<td>${name}</td><td><a href="${url}" target="_blank">${url}</a></td>`;
+                row.innerHTML = `<td>${name}</td><td><a href="${url}" target="_blank">${url}</a></td><td><button class='delete-btn' onclick='deleteWebsite(this)'>Delete</button></td>`;
                 list.appendChild(row);
                 document.getElementById('website-name').value = '';
                 document.getElementById('new-website').value = '';
             }
+        }
+
+        function deleteWebsite(button) {
+            let row = button.parentElement.parentElement;
+            row.remove();
         }
 
         function addTask() {
