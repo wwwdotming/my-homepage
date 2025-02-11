@@ -21,6 +21,7 @@
 <body>
     <div class="container">
         <h2>My Frequently Used Websites</h2>
+        <input type="file" id="bookmark-file" accept=".html" onchange="loadBookmarks(event)">
         <table>
             <thead>
                 <tr>
@@ -79,6 +80,25 @@
                 list.appendChild(row);
                 document.getElementById('new-task').value = '';
             }
+        }
+
+        function loadBookmarks(event) {
+            let file = event.target.files[0];
+            if (!file) return;
+            
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                let parser = new DOMParser();
+                let doc = parser.parseFromString(e.target.result, "text/html");
+                let links = doc.querySelectorAll("a");
+                links.forEach(link => {
+                    let list = document.getElementById('website-list');
+                    let row = document.createElement('tr');
+                    row.innerHTML = `<td>${link.textContent}</td><td><a href="${link.href}" target="_blank">${link.href}</a></td><td><button class='delete-btn' onclick='deleteWebsite(this)'>Delete</button></td>`;
+                    list.appendChild(row);
+                });
+            };
+            reader.readAsText(file);
         }
     </script>
 </body>
