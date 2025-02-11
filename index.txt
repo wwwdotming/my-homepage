@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Homepage</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h2 { color: #333; }
+        ul { list-style: none; padding: 0; }
+        li { margin: 10px 0; }
+        a { text-decoration: none; color: #007bff; }
+        input, button { padding: 10px; margin-top: 10px; width: 100%; }
+        button { background-color: #007bff; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>My Frequently Used Websites</h2>
+        <ul id="website-list">
+            <li><a href="https://www.google.com" target="_blank">Google</a></li>
+            <li><a href="https://www.github.com" target="_blank">GitHub</a></li>
+        </ul>
+        <input type="text" id="new-website" placeholder="Enter website URL">
+        <button onclick="addWebsite()">Add Website</button>
+        
+        <h2>To-Do List</h2>
+        <ul id="todo-list"></ul>
+        <input type="text" id="new-task" placeholder="Enter new task">
+        <button onclick="addTask()">Add Task</button>
+    </div>
+
+    <script>
+        function addWebsite() {
+            let url = document.getElementById('new-website').value;
+            if (url) {
+                let list = document.getElementById('website-list');
+                let li = document.createElement('li');
+                li.innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
+                list.appendChild(li);
+                document.getElementById('new-website').value = '';
+            }
+        }
+
+        function addTask() {
+            let task = document.getElementById('new-task').value;
+            if (task) {
+                let list = document.getElementById('todo-list');
+                let li = document.createElement('li');
+                li.textContent = task;
+                list.appendChild(li);
+                document.getElementById('new-task').value = '';
+            }
+        }
+    </script>
+</body>
+</html>
