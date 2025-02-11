@@ -1,75 +1,59 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Homepage</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h2 { color: #333; }
+        ul { list-style: none; padding: 0; }
+        li { margin: 10px 0; }
+        a { text-decoration: none; color: #007bff; }
+        input, button { padding: 10px; margin-top: 10px; width: 100%; }
+        button { background-color: #007bff; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;My Personal Homepage&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>h2 { color: #333; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>ul { list-style: none; padding: 0; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>li { margin: 10px 0; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>a { text-decoration: none; color: #007bff; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>input, button { padding: 10px; margin-top: 10px; width: 100%; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>button { background-color: #007bff; color: white; border: none; cursor: pointer; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>button:hover { background-color: #0056b3; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;My Frequently Used Websites&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul id="website-list"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;li&gt;&lt;a href="https://www.google.com" target="_blank"&gt;Google&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;li&gt;&lt;a href="https://www.github.com" target="_blank"&gt;GitHub&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="text" id="new-website" placeholder="Enter website URL"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button onclick="addWebsite()"&gt;Add Website&lt;/button&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;To-Do List&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul id="todo-list"&gt;&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="text" id="new-task" placeholder="Enter new task"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button onclick="addTask()"&gt;Add Task&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function addWebsite() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>let url = document.getElementById('new-website').value;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (url) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>let list = document.getElementById('website-list');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>let li = document.createElement('li');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>li.innerHTML = `&lt;a href="${url}" target="_blank"&gt;${url}&lt;/a&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>list.appendChild(li);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('new-website').value = '';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function addTask() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>let task = document.getElementById('new-task').value;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (task) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>let list = document.getElementById('todo-list');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>let li = document.createElement('li');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>li.textContent = task;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>list.appendChild(li);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('new-task').value = '';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+    <div class="container">
+        <h2>My Frequently Used Websites</h2>
+        <ul id="website-list">
+            <li><a href="https://www.google.com" target="_blank">Google</a></li>
+            <li><a href="https://www.github.com" target="_blank">GitHub</a></li>
+        </ul>
+        <input type="text" id="new-website" placeholder="Enter website URL">
+        <button onclick="addWebsite()">Add Website</button>
+        
+        <h2>To-Do List</h2>
+        <ul id="todo-list"></ul>
+        <input type="text" id="new-task" placeholder="Enter new task">
+        <button onclick="addTask()">Add Task</button>
+    </div>
+
+    <script>
+        function addWebsite() {
+            let url = document.getElementById('new-website').value;
+            if (url) {
+                let list = document.getElementById('website-list');
+                let li = document.createElement('li');
+                li.innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
+                list.appendChild(li);
+                document.getElementById('new-website').value = '';
+            }
+        }
+
+        function addTask() {
+            let task = document.getElementById('new-task').value;
+            if (task) {
+                let list = document.getElementById('todo-list');
+                let li = document.createElement('li');
+                li.textContent = task;
+                list.appendChild(li);
+                document.getElementById('new-task').value = '';
+            }
+        }
+    </script>
 </body>
 </html>
